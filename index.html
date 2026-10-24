@@ -1,531 +1,2316 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Street Theory | Street Food, Elevated</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<title>Street Theory | Indian Street Food</title>
+
+<meta name="description" content="Discover delicious Indian vegetarian street food, from pani puri and pav bhaji to kachori and jalebi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #11110f;
-  --card: #1c1c18;
-  --cream: #f5f0e7;
-  --muted: #aaa69b;
-  --orange: #ff6b35;
-  --lime: #d8f36a;
+  --orange: #f26b38;
+  --orange-dark: #d94d20;
+  --yellow: #ffd66b;
+  --cream: #fff9ef;
+  --white: #ffffff;
+  --green: #234c39;
+  --dark: #20251f;
+  --muted: #77776f;
+  --border: #eee4d5;
+  --shadow: 0 15px 45px rgba(53, 37, 17, .09);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
-  background: var(--bg);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--dark);
   font-family: "DM Sans", sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-.container { width: min(1150px, 90%); margin: auto; }
-.topbar {
-  background: var(--lime); color: #111;
-  text-align: center; padding: 8px;
-  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+
+button, input, textarea, select {
+  font: inherit;
 }
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: min(1180px, 90%);
+  margin: auto;
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+}
+
+h1, h2 {
+  font-family: "Playfair Display", serif;
+}
+
+section {
+  scroll-margin-top: 85px;
+}
+
+.announcement {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 9px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
 header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(17,17,15,.94);
-  border-bottom: 1px solid #333;
-  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 249, 239, .94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
+
 nav {
-  display: flex; align-items: center;
-  justify-content: space-between; min-height: 75px; gap: 20px;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
-.logo { font: 700 22px "Space Grotesk"; }
-.logo span { color: var(--orange); }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a:hover { color: var(--lime); }
-.cart-btn, .menu-toggle {
-  padding: 10px 15px; border-radius: 30px;
-  background: var(--card); color: white; border: 1px solid #444;
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-size: 25px;
+  white-space: nowrap;
 }
-.menu-toggle { display: none; }
-.hero { padding: 75px 0; }
-.hero-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  align-items: center; gap: 45px;
+
+.logo span {
+  color: var(--orange);
 }
-.eyebrow {
-  color: var(--lime); font-size: 12px;
-  font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase;
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
 }
-h1, h2, h3 { font-family: "Space Grotesk", sans-serif; }
-h1 {
-  font-size: clamp(45px, 6vw, 76px);
-  line-height: 1.02; margin: 22px 0;
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600;
+  transition: color .2s;
 }
-h1 span { color: var(--orange); }
-.hero p, .section-desc { color: var(--muted); }
-.hero p { max-width: 470px; font-size: 17px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--orange-dark);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-button, .menu-toggle {
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  padding: 11px 17px;
+  font-weight: 700;
+}
+
+.menu-toggle {
+  display: none;
+}
+
 .btn {
-  display: inline-block; border: 0;
-  padding: 13px 20px; border-radius: 30px;
-  font-weight: 700; transition: .25s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 22px;
+  font-weight: 700;
+  transition: transform .25s, box-shadow .25s, background .25s;
 }
-.btn:hover { transform: translateY(-3px); }
-.primary { background: var(--orange); color: #17130f; }
-.secondary { border: 1px solid #444; color: white; }
-.hero-image {
-  height: 470px; position: relative;
-  border-radius: 180px 180px 20px 20px;
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(242, 107, 56, .22);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-dark {
+  background: var(--green);
+  color: white;
+}
+
+.btn-light {
+  border: 1px solid var(--border);
+  color: var(--dark);
+  background: white;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.section {
+  padding: 85px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: clamp(35px, 5vw, 53px);
+  margin-top: 12px;
+}
+
+.section-heading p {
+  max-width: 400px;
+  color: var(--muted);
+}
+
+.hero {
+  padding: 65px 0 85px;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 20%, #ffe7b8 0, transparent 28%),
+    var(--cream);
 }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; }
-.hero-image:after {
-  content: "BOLD BITES ONLY ✳";
-  position: absolute; bottom: 22px; left: 22px;
-  padding: 12px 16px; background: var(--lime);
-  color: #111; font-weight: 700; border-radius: 6px;
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
 }
-.section { padding: 80px 0; }
-.menu-section { background: #171714; }
-.section-head {
-  display: flex; justify-content: space-between;
-  align-items: end; gap: 20px; margin-bottom: 30px;
+
+.hero h1 {
+  font-size: clamp(45px, 6.5vw, 78px);
+  margin: 20px 0;
+  letter-spacing: -2px;
 }
-h2 { font-size: clamp(34px, 4vw, 52px); line-height: 1.1; margin-top: 10px; }
-.section-desc { max-width: 390px; }
-.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
-.filter {
-  padding: 9px 17px; border-radius: 25px;
-  background: transparent; border: 1px solid #444; color: white;
+
+.hero h1 span {
+  color: var(--orange);
 }
-.filter.active, .filter:hover { background: var(--lime); color: #111; border-color: var(--lime); }
-.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.hero-copy > p {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.hero-rating {
+  color: #a56a00;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-visual {
+  position: relative;
+  perspective: 1000px;
+}
+
+.hero-image-wrap {
+  height: 470px;
+  overflow: hidden;
+  border-radius: 48% 48% 22px 22px;
+  box-shadow: 20px 25px 0 #f9d9a6;
+  transform: rotateY(-5deg) rotateX(2deg);
+  transition: transform .5s;
+}
+
+.hero-image-wrap:hover {
+  transform: rotateY(0) rotateX(0) translateY(-5px);
+}
+
+.hero-image-wrap img {
+  height: 100%;
+  transition: transform .7s;
+}
+
+.hero-image-wrap:hover img {
+  transform: scale(1.06);
+}
+
+.floating-badge {
+  position: absolute;
+  background: white;
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  animation: float 4s ease-in-out infinite;
+}
+
+.badge-top {
+  top: 40px;
+  left: -35px;
+}
+
+.badge-bottom {
+  bottom: 25px;
+  right: -20px;
+  animation-delay: -2s;
+}
+
+.floating-badge strong {
+  display: block;
+  font-size: 14px;
+}
+
+.floating-badge small {
+  color: var(--muted);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.stats {
+  background: var(--green);
+  color: white;
+  padding: 28px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 20px;
+}
+
+.stat strong {
+  display: block;
+  color: var(--yellow);
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+}
+
+.stat span {
+  color: #e3e9e0;
+  font-size: 13px;
+}
+
+.food-section {
+  background: #fffdf8;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 10px 17px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: white;
+  color: var(--dark);
+  transition: .2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 370px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 30px;
+  padding: 13px 18px;
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.search-box:focus {
+  border-color: var(--orange);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
 .food-card {
-  background: var(--card); border: 1px solid #30302b;
-  border-radius: 18px; overflow: hidden;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform .35s, box-shadow .35s;
+  transform-style: preserve-3d;
+}
+
+.food-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: var(--shadow);
+}
+
+.food-image {
+  height: 225px;
+  position: relative;
+  overflow: hidden;
+  background: #f1e4d1;
+}
+
+.food-image img {
+  height: 100%;
+  transition: transform .55s;
+}
+
+.food-card:hover .food-image img {
+  transform: scale(1.08);
+}
+
+.food-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: white;
+  color: var(--green);
+  border-radius: 20px;
+  padding: 6px 11px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.food-info {
+  padding: 20px;
+}
+
+.food-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.food-top h3 {
+  font-size: 18px;
+}
+
+.price {
+  color: var(--orange-dark);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.food-info p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 12px 0 18px;
+  min-height: 42px;
+}
+
+.food-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.rating {
+  color: #a36d00;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.add-btn {
+  background: var(--orange);
+  color: white;
+  border: 0;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.add-btn:hover {
+  background: var(--orange-dark);
+  transform: scale(1.04);
+}
+
+.no-results {
+  display: none;
+  padding: 35px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+.marquee {
+  background: var(--yellow);
+  padding: 17px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: 2px;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-image {
+  height: 460px;
+  border-radius: 25px;
+  box-shadow: 15px 15px 0 #f9d9a6;
+}
+
+.about-copy h2 {
+  font-size: clamp(36px, 5vw, 54px);
+  margin: 16px 0;
+}
+
+.about-copy p {
+  color: var(--muted);
+  margin: 15px 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.value-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 18px;
+}
+
+.value-card span {
+  font-size: 24px;
+}
+
+.value-card strong {
+  display: block;
+  margin-top: 8px;
+}
+
+.value-card p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.gallery-section {
+  background: #f5ead9;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #e9dac2;
+}
+
+.gallery-item img {
+  height: 100%;
+  transition: transform .6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 40px 17px 17px;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+  font-weight: 800;
+}
+
+.reviews {
+  background: white;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 26px;
+  border-radius: 20px;
+  transition: transform .3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  color: #e5a300;
+  letter-spacing: 3px;
+}
+
+.review-card blockquote {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin: 18px 0;
+}
+
+.review-card small {
+  color: var(--muted);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 45px;
+}
+
+.contact-copy h2 {
+  font-size: clamp(35px, 5vw, 52px);
+  margin: 15px 0;
+}
+
+.contact-copy p {
+  color: var(--muted);
+  margin: 15px 0;
+}
+
+.contact-detail {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-detail strong {
+  display: block;
+  color: var(--green);
+}
+
+.contact-form {
+  background: white;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.contact-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--border);
+  background: #fffdf9;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: var(--orange);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.cta {
+  background: var(--green);
+  color: white;
+  padding: 60px 0;
+}
+
+.cta-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cta h2 {
+  font-size: clamp(35px, 5vw, 52px);
+  margin: 10px 0;
+}
+
+.cta p {
+  color: #e1e9df;
+}
+
+footer {
+  background: #192d23;
+  color: white;
+  padding: 35px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  color: #c6d2c9;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: var(--yellow);
+}
+
+/* CART DRAWER */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, .5);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
   transition: .3s;
 }
-.food-card:hover { transform: translateY(-6px); border-color: var(--lime); }
-.food-card img { width: 100%; height: 210px; object-fit: cover; transition: .4s; }
-.food-card:hover img { transform: scale(1.04); }
-.food-info { padding: 18px; }
-.food-top { display: flex; justify-content: space-between; gap: 12px; }
-.food-top h3 { font-size: 19px; }
-.price { color: var(--lime); font-weight: 700; white-space: nowrap; }
-.food-info p { color: var(--muted); font-size: 14px; margin: 10px 0 16px; }
-.food-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.rating { font-size: 13px; color: #e9d6a4; }
-.add-btn {
-  border: 0; border-radius: 25px; padding: 9px 14px;
-  background: var(--orange); color: #111; font-weight: 700;
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
 }
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-.story-img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; }
-.story-copy p { color: var(--muted); margin: 20px 0; }
-.values { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
-.value { border: 1px solid #333; padding: 16px; border-radius: 12px; }
-.value strong { color: var(--lime); display: block; }
-.value span { color: var(--muted); font-size: 13px; }
-.reviews { background: #eae4d8; color: #171711; }
-.reviews .eyebrow { color: #d94f25; }
-.reviews .section-desc { color: #69655d; }
-.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
-.review-card { background: #faf7f0; padding: 24px; border-radius: 18px; }
-.stars { color: #d94f25; letter-spacing: 3px; }
-.review-card blockquote { font: 500 17px "Space Grotesk"; margin: 15px 0 20px; }
-.review-card small { color: #6b675f; }
-.cta { padding: 75px 0; }
-.cta-box {
-  background: var(--orange); color: #17130f;
-  border-radius: 25px; padding: 45px;
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 25px;
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 201;
+  width: min(430px, 100%);
+  background: var(--cream);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(105%);
+  transition: transform .35s ease;
 }
-.cta-box p { margin-top: 12px; }
-.cta-box .btn { background: var(--bg); color: white; white-space: nowrap; }
-footer { border-top: 1px solid #333; padding: 25px 0; color: var(--muted); }
-.footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
-.overlay {
-  position: fixed; inset: 0; z-index: 19;
-  background: #0009; display: none;
+
+.cart-drawer.open {
+  transform: translateX(0);
 }
-.overlay.show { display: block; }
-.drawer {
-  position: fixed; top: 0; right: 0; bottom: 0;
-  width: min(420px, 100%); z-index: 20;
-  background: #191916; border-left: 1px solid #444;
-  padding: 22px; display: flex; flex-direction: column;
-  transform: translateX(105%); transition: .3s;
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
 }
-.drawer.open { transform: translateX(0); }
-.drawer-head, .total-row { display: flex; justify-content: space-between; align-items: center; }
-.close-btn { border: 0; background: #333; color: white; border-radius: 50%; width: 36px; height: 36px; }
-.cart-items { overflow-y: auto; flex: 1; margin: 20px 0; }
-.empty { text-align: center; color: var(--muted); padding: 40px 0; }
-.cart-item { padding: 15px 0; border-bottom: 1px solid #333; }
-.cart-item-top { display: flex; justify-content: space-between; gap: 12px; }
-.cart-item small { color: var(--muted); }
-.qty { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
-.qty button { background: #333; color: white; border: 0; border-radius: 50%; width: 27px; height: 27px; }
-.total-row { padding: 15px 0; font-weight: 700; }
-.drawer .btn { width: 100%; }
-.note { color: var(--muted); font-size: 12px; margin-top: 10px; }
+
+.drawer-header h2 {
+  font-size: 28px;
+}
+
+.close-btn {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+.empty-cart {
+  text-align: center;
+  color: var(--muted);
+  padding: 45px 0;
+}
+
+.cart-item {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-item small {
+  color: var(--muted);
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 12px;
+}
+
+.quantity-controls button {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  font-weight: 800;
+  font-size: 19px;
+}
+
+.cart-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
 .toast {
-  position: fixed; bottom: 25px; left: 50%;
-  transform: translate(-50%, 20px); opacity: 0;
-  pointer-events: none; z-index: 30;
-  background: var(--lime); color: #111;
-  padding: 12px 20px; border-radius: 30px; font-weight: 700;
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 300;
+  background: var(--green);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
   transition: .25s;
+  text-align: center;
+  max-width: 90%;
 }
-.toast.show { opacity: 1; transform: translate(-50%, 0); }
-.reveal { opacity: 0; transform: translateY(22px); transition: .7s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
-}
-@media(max-width: 850px) {
-  .hero-grid, .story-grid { grid-template-columns: 1fr; }
-  .hero-image { height: 400px; }
-  .menu-grid { grid-template-columns: repeat(2, 1fr); }
-  .review-grid { grid-template-columns: 1fr; }
-  .story-img { height: 330px; }
-}
-@media(max-width: 600px) {
-  .menu-toggle { display: inline-block; }
-  .nav-links {
-    display: none; position: absolute; top: 70px; left: 5%; right: 5%;
-    background: #20201b; padding: 18px; border-radius: 12px;
-    flex-direction: column; gap: 15px;
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
-  .nav-links.show { display: flex; }
-  .hero { padding: 50px 0; }
-  .hero-image { height: 330px; }
-  .menu-grid { grid-template-columns: 1fr; }
-  .section { padding: 60px 0; }
-  .section-head { align-items: start; flex-direction: column; }
-  .cta-box { padding: 28px; align-items: start; flex-direction: column; }
-  .values { gap: 8px; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media(max-width: 950px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .hero-grid {
+    gap: 35px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    gap: 35px;
+  }
+}
+
+@media(max-width: 700px) {
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 5%;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    border-radius: 17px;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .cart-button {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 45px 0 65px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero-image-wrap {
+    height: 350px;
+  }
+
+  .badge-top {
+    left: -5px;
+  }
+
+  .badge-bottom {
+    right: -5px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-image {
+    height: 245px;
+  }
+
+  .about-image {
+    height: 330px;
+  }
+
+  .gallery-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 280px;
+  }
+
+  .cta-box {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .footer-grid {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .contact-form {
+    padding: 22px;
+  }
 }
 </style>
 </head>
 
 <body>
-<div class="topbar">GOOD FOOD. BIG MOOD. ✳ FRESHLY MADE, ALWAYS.</div>
+
+<div class="announcement">
+  🇮🇳 DESI CRAVINGS. FRESHLY MADE. FULL-ON FLAVOUR.
+</div>
 
 <header>
   <nav class="container">
-    <a class="logo" href="#home">STREET THEORY<span>.</span></a>
+
+    <a class="logo" href="#home" aria-label="Street Theory home">
+      STREET THEORY<span>.</span>
+    </a>
+
     <div class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
       <a href="#menu">Menu</a>
-      <a href="#story">Our Vibe</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#about">Our Story</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </div>
-    <div>
-      <button class="cart-btn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+
+    <div class="nav-actions">
+      <button class="cart-button" id="openCart">
+        🛒 Cart (<span id="cartCount">0</span>)
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
     </div>
+
   </nav>
 </header>
 
 <main>
+
+<!-- HOME -->
+
 <section class="hero" id="home">
   <div class="container hero-grid">
-    <div class="reveal">
-      <div class="eyebrow">Your neighbourhood's new obsession</div>
-      <h1>Street food.<br><span>Main character</span> energy.</h1>
-      <p>Big flavours, fresh ingredients, and that first-bite silence. Your favourite street-food cravings, turned all the way up.</p>
-      <div class="actions">
-        <a href="#menu" class="btn primary">Explore the menu ↗</a>
-        <a href="#story" class="btn secondary">Our story</a>
+
+    <div class="hero-copy reveal">
+
+      <div class="eyebrow">✦ India's favourite street-food vibes</div>
+
+      <h1>
+        Desi food.<br>
+        <span>Dil se delicious.</span>
+      </h1>
+
+      <p>
+        From crispy kachoris to tangy pani puri, discover the flavours
+        that bring India's streets to life. Freshly prepared, full of
+        flavour, and made for your next craving.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Explore the menu ↗</a>
+        <a href="#about" class="btn btn-light">Our story</a>
       </div>
-      <p>★★★★★ &nbsp; Made fresh. Loved locally.</p>
+
+      <div class="hero-rating">
+        ★★★★★ &nbsp; Desi flavours, happy hearts
+      </div>
+
     </div>
-    <div class="hero-image reveal">
-      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1000&q=85" alt="Delicious Indian street food">
+
+    <div class="hero-visual reveal">
+
+      <div class="floating-badge badge-top">
+        <strong>🌶️ Full-on flavour</strong>
+        <small>Every single bite</small>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1000&q=85"
+          alt="Indian vegetarian samosas"
+          fetchpriority="high">
+      </div>
+
+      <div class="floating-badge badge-bottom">
+        <strong>💚 Veg only</strong>
+        <small>Made for desi cravings</small>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="menu-section section" id="menu">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><div class="eyebrow">The good stuff</div><h2>Made for your<br>next craving.</h2></div>
-      <p class="section-desc">From crispy classics to spicy crowd-pleasers — pick your mood, build your order, and let's eat.</p>
+<!-- STATS -->
+
+<section class="stats">
+  <div class="container stats-grid">
+
+    <div class="stat">
+      <strong>15+</strong>
+      <span>Desi favourites</span>
     </div>
 
-    <div class="filters">
-      <button class="filter active" data-filter="all">Everything</button>
-      <button class="filter" data-filter="snacks">Street Snacks</button>
-      <button class="filter" data-filter="momos">Momos</button>
-      <button class="filter" data-filter="drinks">Drinks</button>
+    <div class="stat">
+      <strong>100%</strong>
+      <span>Vegetarian menu</span>
+    </div>
+
+    <div class="stat">
+      <strong>Fresh</strong>
+      <span>Made with care</span>
+    </div>
+
+    <div class="stat">
+      <strong>Desi</strong>
+      <span>At heart, always</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- MENU -->
+
+<section class="section food-section" id="menu">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div>
+        <div class="eyebrow">✦ Straight from the streets</div>
+        <h2>Your cravings,<br>our speciality.</h2>
+      </div>
+
+      <p>
+        From Rajasthan's crispy kachoris to Mumbai's buttery pav bhaji,
+        find your next favourite here.
+      </p>
+    </div>
+
+    <input
+      type="search"
+      id="foodSearch"
+      class="search-box"
+      placeholder="🔍 Search Indian food..."
+      aria-label="Search food menu">
+
+    <div class="filters" id="filters">
+
+      <button class="filter-btn active" data-filter="all">All Food</button>
+      <button class="filter-btn" data-filter="chaat">Chaat</button>
+      <button class="filter-btn" data-filter="snacks">Snacks</button>
+      <button class="filter-btn" data-filter="meals">Meals</button>
+      <button class="filter-btn" data-filter="sweets">Sweets</button>
+      <button class="filter-btn" data-filter="drinks">Drinks</button>
+
     </div>
 
     <div class="menu-grid" id="menuGrid">
-      <article class="food-card reveal" data-category="snacks">
-        <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80" alt="Crispy samosas" loading="lazy">
+
+      <!-- 1 -->
+      <article class="food-card reveal" data-category="snacks" data-name="punjabi samosa">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80" alt="Punjabi samosa" loading="lazy">
+          <span class="food-tag">BESTSELLER</span>
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Masala Samosa Duo</h3><span class="price">₹69</span></div>
-          <p>Golden crunch, spicy potato filling, tangy chutney on the side.</p>
-          <div class="food-bottom"><span class="rating">★ 4.9 · Veg</span><button class="add-btn" data-id="samosa">+ Add</button></div>
+          <div class="food-top">
+            <h3>Punjabi Samosa</h3>
+            <span class="price">₹40</span>
+          </div>
+          <p>Crispy golden pastry stuffed with spiced potato filling.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.9 · Veg</span>
+            <button class="add-btn" data-id="samosa">+ Add</button>
+          </div>
         </div>
       </article>
 
-      <article class="food-card reveal" data-category="momos">
-        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80" alt="Steamed momos" loading="lazy">
+      <!-- 2 -->
+      <article class="food-card reveal" data-category="chaat" data-name="pani puri golgappa">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Indian street food pani puri" loading="lazy">
+          <span class="food-tag">CROWD FAVOURITE</span>
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Chilli-Punch Momos</h3><span class="price">₹129</span></div>
-          <p>Juicy momos tossed in our fiery house chilli sauce.</p>
-          <div class="food-bottom"><span class="rating">★ 4.8 · Veg</span><button class="add-btn" data-id="momos">+ Add</button></div>
+          <div class="food-top">
+            <h3>Pani Puri</h3>
+            <span class="price">₹60</span>
+          </div>
+          <p>Crispy puris filled with tangy water, potato and chutneys.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.9 · Veg</span>
+            <button class="add-btn" data-id="panipuri">+ Add</button>
+          </div>
         </div>
       </article>
 
-      <article class="food-card reveal" data-category="snacks">
-        <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80" alt="Loaded burger" loading="lazy">
+      <!-- 3 -->
+      <article class="food-card reveal" data-category="meals" data-name="mumbai pav bhaji">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=80" alt="Indian vegetarian pav bhaji style dish" loading="lazy">
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Loaded Street Burger</h3><span class="price">₹149</span></div>
-          <p>Crispy patty, crunchy lettuce, house sauce, all the good stuff.</p>
-          <div class="food-bottom"><span class="rating">★ 4.7 · Veg</span><button class="add-btn" data-id="burger">+ Add</button></div>
+          <div class="food-top">
+            <h3>Mumbai Pav Bhaji</h3>
+            <span class="price">₹130</span>
+          </div>
+          <p>Buttery pav served with spicy mashed vegetable bhaji.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.8 · Veg</span>
+            <button class="add-btn" data-id="pavbhaji">+ Add</button>
+          </div>
         </div>
       </article>
 
-      <article class="food-card reveal" data-category="snacks">
-        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=80" alt="Indian chaat" loading="lazy">
+      <!-- 4 -->
+      <article class="food-card reveal" data-category="chaat" data-name="delhi papdi chaat">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=700&q=80" alt="Indian papdi chaat" loading="lazy">
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Chatpata Chaat Bowl</h3><span class="price">₹99</span></div>
-          <p>Sweet, tangy, crunchy chaat with a little kick in every bite.</p>
-          <div class="food-bottom"><span class="rating">★ 4.9 · Veg</span><button class="add-btn" data-id="chaat">+ Add</button></div>
+          <div class="food-top">
+            <h3>Delhi Papdi Chaat</h3>
+            <span class="price">₹80</span>
+          </div>
+          <p>Crispy papdi with yoghurt, chutneys and crunchy toppings.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.8 · Veg</span>
+            <button class="add-btn" data-id="papdi">+ Add</button>
+          </div>
         </div>
       </article>
 
-      <article class="food-card reveal" data-category="momos">
-        <img src="https://images.unsplash.com/photo-1625220194771-7eb?auto=format&fit=crop&w=700&q=80" alt="Momos with dipping sauce" loading="lazy">
+      <!-- 5 -->
+      <article class="food-card reveal" data-category="snacks" data-name="mumbai vada pav">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80" alt="Vegetarian Indian street snack" loading="lazy">
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Classic Steamed Momos</h3><span class="price">₹109</span></div>
-          <p>Comfort-food dumplings with fresh filling and a punchy dip.</p>
-          <div class="food-bottom"><span class="rating">★ 4.8 · Veg</span><button class="add-btn" data-id="steamed">+ Add</button></div>
+          <div class="food-top">
+            <h3>Mumbai Vada Pav</h3>
+            <span class="price">₹45</span>
+          </div>
+          <p>Spiced potato fritter in a bun with bold garlic chutney.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.7 · Veg</span>
+            <button class="add-btn" data-id="vadapav">+ Add</button>
+          </div>
         </div>
       </article>
 
-      <article class="food-card reveal" data-category="drinks">
-        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80" alt="Refreshing cold drink" loading="lazy">
+      <!-- 6 -->
+      <article class="food-card reveal" data-category="meals" data-name="masala dosa">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=80" alt="South Indian vegetarian masala dosa" loading="lazy">
+        </div>
         <div class="food-info">
-          <div class="food-top"><h3>Fresh Lime Fizz</h3><span class="price">₹59</span></div>
-          <p>Citrusy, bubbly, ice-cold refreshment to balance the spice.</p>
-          <div class="food-bottom"><span class="rating">★ 4.7 · Drink</span><button class="add-btn" data-id="lime">+ Add</button></div>
+          <div class="food-top">
+            <h3>Masala Dosa</h3>
+            <span class="price">₹110</span>
+          </div>
+          <p>Crispy dosa with spiced potato, chutneys and sambar.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.8 · Veg</span>
+            <button class="add-btn" data-id="dosa">+ Add</button>
+          </div>
         </div>
       </article>
+
+      <!-- 7 -->
+      <article class="food-card reveal" data-category="snacks" data-name="rajasthani pyaaz kachori">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Indian kachori style snack" loading="lazy">
+          <span class="food-tag">RAJASTHANI SPECIAL</span>
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Pyaaz Kachori</h3>
+            <span class="price">₹35</span>
+          </div>
+          <p>Flaky Rajasthani kachori with a delicious onion masala.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.9 · Veg</span>
+            <button class="add-btn" data-id="kachori">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="food-card reveal" data-category="snacks" data-name="gujarati khaman dhokla">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80" alt="Gujarati vegetarian snack" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Khaman Dhokla</h3>
+            <span class="price">₹55</span>
+          </div>
+          <p>Soft, fluffy steamed gram-flour snack with green chutney.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.7 · Veg</span>
+            <button class="add-btn" data-id="dhokla">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="food-card reveal" data-category="meals" data-name="chole kulche">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80" alt="Indian chole vegetarian meal" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Chole Kulche</h3>
+            <span class="price">₹120</span>
+          </div>
+          <p>Spicy chickpea curry paired with soft, flavourful kulche.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.8 · Veg</span>
+            <button class="add-btn" data-id="chole">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="food-card reveal" data-category="snacks" data-name="paneer tikka frankie">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Indian vegetarian wrap" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Paneer Frankie</h3>
+            <span class="price">₹100</span>
+          </div>
+          <p>Spiced paneer wrapped in a soft roti with crunchy vegetables.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.7 · Veg</span>
+            <button class="add-btn" data-id="frankie">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="food-card reveal" data-category="snacks" data-name="indori poha">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80" alt="Indian poha breakfast" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Indori Poha</h3>
+            <span class="price">₹50</span>
+          </div>
+          <p>Light poha topped with sev, coriander and fresh lemon.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.7 · Veg</span>
+            <button class="add-btn" data-id="poha">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="food-card reveal" data-category="sweets" data-name="hot jalebi">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1605197161470-5d8c3e1e3e4d?auto=format&fit=crop&w=700&q=80" alt="Indian jalebi dessert" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Hot Jalebi</h3>
+            <span class="price">₹60</span>
+          </div>
+          <p>Golden, syrupy spirals for the perfect sweet ending.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.9 · Veg</span>
+            <button class="add-btn" data-id="jalebi">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="food-card reveal" data-category="drinks" data-name="adrak masala chai">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=80" alt="Indian masala chai tea" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Adrak Masala Chai</h3>
+            <span class="price">₹25</span>
+          </div>
+          <p>Hot Indian chai infused with ginger and aromatic spices.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.9 · Veg</span>
+            <button class="add-btn" data-id="chai">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="food-card reveal" data-category="drinks" data-name="shikanji">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=700&q=80" alt="Refreshing Indian lemon drink" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Masala Shikanji</h3>
+            <span class="price">₹40</span>
+          </div>
+          <p>Refreshing lemon drink with a dash of desi masala.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.6 · Veg</span>
+            <button class="add-btn" data-id="shikanji">+ Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="food-card reveal" data-category="drinks" data-name="punjabi lassi">
+        <div class="food-image">
+          <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=700&q=80" alt="Traditional Indian lassi drink" loading="lazy">
+        </div>
+        <div class="food-info">
+          <div class="food-top">
+            <h3>Punjabi Lassi</h3>
+            <span class="price">₹60</span>
+          </div>
+          <p>Chilled, creamy yoghurt drink with a classic desi touch.</p>
+          <div class="food-bottom">
+            <span class="rating">★ 4.8 · Veg</span>
+            <button class="add-btn" data-id="lassi">+ Add</button>
+          </div>
+        </div>
+      </article>
+
     </div>
+
+    <div class="no-results" id="noResults">
+      <h3>No dishes found 😕</h3>
+      <p>Try another food name or choose a different category.</p>
+    </div>
+
   </div>
 </section>
 
-<section class="section" id="story">
-  <div class="container story-grid">
-    <img class="story-img reveal" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85" alt="Fresh food being prepared">
+<!-- MARQUEE -->
+
+<div class="marquee" aria-label="Indian vegetarian street food">
+  <div class="marquee-track">
+    ✦ DESI CRAVINGS ✦ FRESH FLAVOURS ✦ INDIAN STREET FOOD ✦ MADE WITH LOVE ✦
+    DESI CRAVINGS ✦ FRESH FLAVOURS ✦ INDIAN STREET FOOD ✦ MADE WITH LOVE ✦
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+  <div class="container about-grid">
+
     <div class="reveal">
-      <div class="eyebrow">Not just a stall. A whole vibe.</div>
-      <h2>Street roots.<br>Big-time flavour.</h2>
-      <p>We believe the best food doesn't need a fancy address — it needs fresh ingredients, bold seasoning, and people who care. That's the Street Theory promise: familiar favourites with a little extra attitude.</p>
-      <a href="#menu" class="btn secondary">Find your favourite ↗</a>
-      <div class="values">
-        <div class="value"><strong>01 / Fresh first</strong><span>Prepared fresh when you order.</span></div>
-        <div class="value"><strong>02 / Flavour loud</strong><span>House-made sauces and masalas.</span></div>
-        <div class="value"><strong>03 / Good energy</strong><span>Quick service, friendly faces.</span></div>
-        <div class="value"><strong>04 / Worth the bite</strong><span>Big satisfaction, fair prices.</span></div>
+      <img
+        class="about-image"
+        src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85"
+        alt="Indian vegetarian food prepared with care"
+        loading="lazy">
+    </div>
+
+    <div class="about-copy reveal">
+
+      <div class="eyebrow">✦ A little bit about us</div>
+
+      <h2>Street roots.<br>Desi soul.</h2>
+
+      <p>
+        At Street Theory, we believe great food brings people together.
+        Inspired by India's vibrant food culture, we celebrate the snacks,
+        flavours and little moments that make street food unforgettable.
+      </p>
+
+      <p>
+        From tangy chaat to crispy kachori, our menu is all about
+        familiar favourites, vegetarian delights and full-on desi flavour.
+      </p>
+
+      <div class="values-grid">
+
+        <div class="value-card">
+          <span>🥬</span>
+          <strong>Veg-first menu</strong>
+          <p>Vegetarian food choices.</p>
+        </div>
+
+        <div class="value-card">
+          <span>🌶️</span>
+          <strong>Bold flavours</strong>
+          <p>Indian spices and chutneys.</p>
+        </div>
+
+        <div class="value-card">
+          <span>✨</span>
+          <strong>Fresh vibes</strong>
+          <p>Food worth coming back for.</p>
+        </div>
+
+        <div class="value-card">
+          <span>💚</span>
+          <strong>Made with care</strong>
+          <p>Every bite matters.</p>
+        </div>
+
       </div>
+
+      <a href="#menu" class="btn btn-primary" style="margin-top:25px">
+        Explore our menu ↗
+      </a>
+
     </div>
   </div>
 </section>
+
+<!-- GALLERY -->
+
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div>
+        <div class="eyebrow">✦ A feast for your eyes</div>
+        <h2>Good food.<br>Great memories.</h2>
+      </div>
+
+      <p>
+        A little visual love for the Indian street-food flavours
+        we all know and love.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80" alt="Indian samosas" loading="lazy">
+        <div class="gallery-caption">Crispy classics</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Indian vegetarian street snacks" loading="lazy">
+        <div class="gallery-caption">Street-food favourites</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=80" alt="A warm cup of Indian chai" loading="lazy">
+        <div class="gallery-caption">Chai-time scenes</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=80" alt="South Indian dosa" loading="lazy">
+        <div class="gallery-caption">South Indian magic</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80" alt="Indian vegetarian curry" loading="lazy">
+        <div class="gallery-caption">Comfort on a plate</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=700&q=80" alt="Traditional lassi" loading="lazy">
+        <div class="gallery-caption">Sweet little moments</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
 
 <section class="section reviews" id="reviews">
   <div class="container">
-    <div class="eyebrow">Word on the street</div>
-    <h2>Love at first bite.</h2>
-    <p class="section-desc">Demo reviews — replace these with genuine customer feedback.</p>
+
+    <div class="section-heading reveal">
+      <div>
+        <div class="eyebrow">✦ The word on the street</div>
+        <h2>Love at first bite.</h2>
+      </div>
+      <p>Example testimonials for the demo website. Replace them with genuine customer reviews before publishing.</p>
+    </div>
+
     <div class="review-grid">
-      <article class="review-card reveal"><div class="stars">★★★★★</div><blockquote>“The chilli momos are unreal. That sauce has me thinking about it the next day.”</blockquote><strong>Aarav M.</strong><br><small>Local foodie</small></article>
-      <article class="review-card reveal"><div class="stars">★★★★★</div><blockquote>“Cute setup, quick service, and the chaat hits every single craving. 10/10.”</blockquote><strong>Sana K.</strong><br><small>Regular customer</small></article>
-      <article class="review-card reveal"><div class="stars">★★★★★</div><blockquote>“Finally, street food that tastes fresh and feels worth every rupee.”</blockquote><strong>Rohan P.</strong><br><small>First-time visitor</small></article>
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "The kachori and chai combo is such a mood. Proper desi comfort food!"
+        </blockquote>
+        <strong>Priya S.</strong><br>
+        <small>Sample customer review</small>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "Finally, a menu full of the Indian snacks I actually crave."
+        </blockquote>
+        <strong>Rohan M.</strong><br>
+        <small>Sample customer review</small>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "The food selection, colours and vibe are so fun. Perfect for chaat lovers."
+        </blockquote>
+        <strong>Ananya K.</strong><br>
+        <small>Sample customer review</small>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="cta" id="contact">
-  <div class="container cta-box reveal">
-    <div><div class="eyebrow" style="color:#432315">Your next favourite bite is waiting</div><h2>Cravings don't wait.<br>Neither should you.</h2><p>Build your order and send it straight to us on WhatsApp.</p></div>
-    <a href="#menu" class="btn">Order something good ↗</a>
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+  <div class="container contact-grid">
+
+    <div class="contact-copy reveal">
+      <div class="eyebrow">✦ Let's connect</div>
+
+      <h2>Got a craving?<br>Let's talk.</h2>
+
+      <p>
+        Have a question, want to enquire about an order, or just want
+        to say hello? Send us a message.
+      </p>
+
+      <div class="contact-detail">
+        <strong>📍 Location</strong>
+        <span>Update with your food stall's address</span>
+      </div>
+
+      <div class="contact-detail">
+        <strong>📱 WhatsApp</strong>
+        <span>Update with your business phone number</span>
+      </div>
+
+      <div class="contact-detail">
+        <strong>🕒 Opening hours</strong>
+        <span>Add your actual operating hours</span>
+      </div>
+
+    </div>
+
+    <form class="contact-form reveal" id="contactForm">
+
+      <h3 style="font-size:25px;margin-bottom:22px">
+        Send us a message ✨
+      </h3>
+
+      <label for="customerName">Your name</label>
+      <input
+        type="text"
+        id="customerName"
+        placeholder="Enter your name"
+        required>
+
+      <label for="customerEmail">Email address</label>
+      <input
+        type="email"
+        id="customerEmail"
+        placeholder="you@example.com"
+        required>
+
+      <label for="enquiryType">What is this about?</label>
+      <select id="enquiryType" required>
+        <option value="">Select an option</option>
+        <option>Food order</option>
+        <option>Menu enquiry</option>
+        <option>Feedback</option>
+        <option>Other</option>
+      </select>
+
+      <label for="customerMessage">Your message</label>
+      <textarea
+        id="customerMessage"
+        placeholder="Tell us what's on your mind..."
+        required></textarea>
+
+      <button type="submit" class="btn btn-primary" style="width:100%">
+        Prepare message ↗
+      </button>
+
+      <p style="font-size:12px;color:#777;margin-top:12px">
+        Demo form: opens your email app to prepare a message.
+      </p>
+
+    </form>
+
   </div>
 </section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <div class="container cta-box reveal">
+
+    <div>
+      <div class="eyebrow" style="color:#ffd66b">
+        ✦ Your next favourite bite is waiting
+      </div>
+
+      <h2>Desi cravings<br>don't wait.</h2>
+
+      <p>Pick your favourites and prepare your order on WhatsApp.</p>
+    </div>
+
+    <a href="#menu" class="btn btn-primary">
+      Order something delicious ↗
+    </a>
+
+  </div>
+</section>
+
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#home">STREET THEORY<span>.</span></a>
-    <span>© <span id="year"></span> Street Theory. Made with extra flavour.</span>
-    <a href="#menu">Explore menu ↑</a>
+  <div class="container footer-grid">
+
+    <div>
+      <a href="#home" class="logo">STREET THEORY<span>.</span></a>
+      <p class="footer-copy" style="margin-top:8px">
+        Indian street food, served with a little extra love.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">Our Story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p class="footer-copy">
+      © <span id="year"></span> Street Theory
+    </p>
+
   </div>
 </footer>
 
+<!-- SHOPPING CART -->
+
 <div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer" aria-label="Shopping cart">
-  <div class="drawer-head"><h2>Your order.</h2><button class="close-btn" id="closeCart" aria-label="Close cart">✕</button></div>
-  <div class="cart-items" id="cartItems"><div class="empty">Your cart is hungry.<br>Add something delicious!</div></div>
-  <div class="total-row"><span>Total</span><span id="cartTotal">₹0</span></div>
-  <button class="btn primary" id="checkout">Order on WhatsApp ↗</button>
-  <p class="note">Demo checkout. Update the WhatsApp number in the code before publishing.</p>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+
+  <div class="drawer-header">
+    <h2>Your order 🛒</h2>
+    <button class="close-btn" id="closeCart" aria-label="Close cart">✕</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="empty-cart">
+      <h3>Your cart is hungry!</h3>
+      <p>Add some desi favourites to get started.</p>
+    </div>
+  </div>
+
+  <div class="cart-total">
+    <span>Total</span>
+    <span id="cartTotal">₹0</span>
+  </div>
+
+  <button class="btn btn-primary" id="checkout" style="width:100%">
+    Order on WhatsApp ↗
+  </button>
+
+  <p class="cart-note">
+    Demo checkout. Add your WhatsApp number in the JavaScript code before publishing.
+  </p>
+
 </aside>
-<div class="toast" id="toast" role="status">Added to cart!</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  Added to cart!
+</div>
 
 <script>
-// Replace with your WhatsApp number including country code.
-// Example India number format: 919876543210
+/* =========================================
+   STREET THEORY - WEBSITE JAVASCRIPT
+   ========================================= */
+
+/*
+  IMPORTANT:
+  Replace the number below with your WhatsApp number.
+  Include country code without + or spaces.
+  Example format: 919876543210
+*/
 const WHATSAPP_NUMBER = "919876543210";
 
+/* MENU DATA */
+
 const products = {
-  samosa: { name: "Masala Samosa Duo", price: 69 },
-  momos: { name: "Chilli-Punch Momos", price: 129 },
-  burger: { name: "Loaded Street Burger", price: 149 },
-  chaat: { name: "Chatpata Chaat Bowl", price: 99 },
-  steamed: { name: "Classic Steamed Momos", price: 109 },
-  lime: { name: "Fresh Lime Fizz", price: 59 }
+  samosa: {
+    name: "Punjabi Samosa",
+    price: 40,
+    category: "snacks"
+  },
+
+  panipuri: {
+    name: "Pani Puri",
+    price: 60,
+    category: "chaat"
+  },
+
+  pavbhaji: {
+    name: "Mumbai Pav Bhaji",
+    price: 130,
+    category: "meals"
+  },
+
+  papdi: {
+    name: "Delhi Papdi Chaat",
+    price: 80,
+    category: "chaat"
+  },
+
+  vadapav: {
+    name: "Mumbai Vada Pav",
+    price: 45,
+    category: "snacks"
+  },
+
+  dosa: {
+    name: "Masala Dosa",
+    price: 110,
+    category: "meals"
+  },
+
+  kachori: {
+    name: "Pyaaz Kachori",
+    price: 35,
+    category: "snacks"
+  },
+
+  dhokla: {
+    name: "Khaman Dhokla",
+    price: 55,
+    category: "snacks"
+  },
+
+  chole: {
+    name: "Chole Kulche",
+    price: 120,
+    category: "meals"
+  },
+
+  frankie: {
+    name: "Paneer Frankie",
+    price: 100,
+    category: "snacks"
+  },
+
+  poha: {
+    name: "Indori Poha",
+    price: 50,
+    category: "snacks"
+  },
+
+  jalebi: {
+    name: "Hot Jalebi",
+    price: 60,
+    category: "sweets"
+  },
+
+  chai: {
+    name: "Adrak Masala Chai",
+    price: 25,
+    category: "drinks"
+  },
+
+  shikanji: {
+    name: "Masala Shikanji",
+    price: 40,
+    category: "drinks"
+  },
+
+  lassi: {
+    name: "Punjabi Lassi",
+    price: 60,
+    category: "drinks"
+  }
 };
 
-const cart = {};
+/* HELPERS */
+
 const $ = id => document.getElementById(id);
-const money = n => "₹" + n.toLocaleString("en-IN");
+
+const money = amount =>
+  "₹" + amount.toLocaleString("en-IN");
+
+const cart = {};
+
 let toastTimer;
 
 function showToast(message) {
   $("toast").textContent = message;
   $("toast").classList.add("show");
+
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $("toast").classList.remove("show"), 2000);
+
+  toastTimer = setTimeout(() => {
+    $("toast").classList.remove("show");
+  }, 2400);
 }
+
+/* SHOPPING CART */
 
 function addToCart(id) {
+  if (!products[id]) return;
+
   cart[id] = (cart[id] || 0) + 1;
+
   renderCart();
-  showToast(products[id].name + " added!");
+
+  showToast(products[id].name + " added to your cart!");
 }
 
-function changeQty(id, amount) {
-  cart[id] = (cart[id] || 0) + amount;
-  if (cart[id] <= 0) delete cart[id];
+function changeQuantity(id, change) {
+  if (!products[id]) return;
+
+  cart[id] = (cart[id] || 0) + change;
+
+  if (cart[id] <= 0) {
+    delete cart[id];
+  }
+
   renderCart();
 }
 
 function renderCart() {
   const ids = Object.keys(cart);
-  const count = ids.reduce((sum, id) => sum + cart[id], 0);
-  const total = ids.reduce((sum, id) => sum + products[id].price * cart[id], 0);
+
+  const count = ids.reduce(
+    (sum, id) => sum + cart[id],
+    0
+  );
+
+  const total = ids.reduce(
+    (sum, id) => sum + products[id].price * cart[id],
+    0
+  );
 
   $("cartCount").textContent = count;
   $("cartTotal").textContent = money(total);
 
-  if (!ids.length) {
-    $("cartItems").innerHTML = '<div class="empty">Your cart is hungry.<br>Add something delicious!</div>';
+  if (ids.length === 0) {
+    $("cartItems").innerHTML = `
+      <div class="empty-cart">
+        <h3>Your cart is hungry!</h3>
+        <p>Add some desi favourites to get started.</p>
+      </div>
+    `;
+
     return;
   }
 
   $("cartItems").innerHTML = ids.map(id => `
     <div class="cart-item">
+
       <div class="cart-item-top">
-        <div><strong>${products[id].name}</strong><br><small>${money(products[id].price)} each</small></div>
-        <strong>${money(products[id].price * cart[id])}</strong>
+        <div>
+          <strong>${products[id].name}</strong><br>
+          <small>${money(products[id].price)} each</small>
+        </div>
+
+        <strong>
+          ${money(products[id].price * cart[id])}
+        </strong>
       </div>
-      <div class="qty">
-        <button data-id="${id}" data-change="-1" aria-label="Remove one">−</button>
+
+      <div class="quantity-controls">
+        <button
+          data-id="${id}"
+          data-change="-1"
+          aria-label="Remove one ${products[id].name}">
+          −
+        </button>
+
         <span>${cart[id]}</span>
-        <button data-id="${id}" data-change="1" aria-label="Add one">+</button>
+
+        <button
+          data-id="${id}"
+          data-change="1"
+          aria-label="Add one ${products[id].name}">
+          +
+        </button>
       </div>
+
     </div>
   `).join("");
 }
 
+/* OPEN AND CLOSE CART */
+
 function openCart() {
-  $("drawer").classList.add("open");
+  $("cartDrawer").classList.add("open");
   $("overlay").classList.add("show");
+  $("cartDrawer").setAttribute("aria-modal", "true");
 }
+
 function closeCart() {
-  $("drawer").classList.remove("open");
+  $("cartDrawer").classList.remove("open");
   $("overlay").classList.remove("show");
+  $("cartDrawer").removeAttribute("aria-modal");
 }
-
-document.querySelectorAll(".add-btn").forEach(button => {
-  button.addEventListener("click", () => addToCart(button.dataset.id));
-});
-
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
-    button.classList.add("active");
-    const category = button.dataset.filter;
-    document.querySelectorAll(".food-card").forEach(card => {
-      card.style.display = category === "all" || card.dataset.category === category ? "" : "none";
-    });
-  });
-});
-
-$("cartItems").addEventListener("click", event => {
-  const button = event.target.closest("button[data-change]");
-  if (button) changeQty(button.dataset.id, Number(button.dataset.change));
-});
 
 $("openCart").addEventListener("click", openCart);
 $("closeCart").addEventListener("click", closeCart);
 $("overlay").addEventListener("click", closeCart);
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeCart(); });
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeCart();
+  }
+});
+
+/* ADD BUTTONS */
+
+document.querySelectorAll(".add-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    addToCart(button.dataset.id);
+  });
+});
+
+/* QUANTITY BUTTONS */
+
+$("cartItems").addEventListener("click", event => {
+  const button = event.target.closest("button[data-change]");
+
+  if (!button) return;
+
+  changeQuantity(
+    button.dataset.id,
+    Number(button.dataset.change)
+  );
+});
+
+/* FOOD SEARCH AND FILTERS */
+
+let activeCategory = "all";
+
+function filterFood() {
+  const search = $("foodSearch").value
+    .trim()
+    .toLowerCase();
+
+  const cards = document.querySelectorAll(".food-card");
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchesSearch = name.includes(search);
+
+    const matchesCategory =
+      activeCategory === "all" ||
+      category === activeCategory;
+
+    const visible = matchesSearch && matchesCategory;
+
+    card.style.display = visible ? "" : "none";
+
+    if (visible) visibleCount++;
+  });
+
+  $("noResults").style.display =
+    visibleCount === 0 ? "block" : "none";
+}
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    activeCategory = button.dataset.filter;
+
+    filterFood();
+  });
+});
+
+$("foodSearch").addEventListener("input", filterFood);
+
+/* WHATSAPP CHECKOUT */
 
 $("checkout").addEventListener("click", () => {
   const ids = Object.keys(cart);
-  if (!ids.length) {
-    showToast("Add food to your cart first!");
+
+  if (ids.length === 0) {
+    showToast("Add some food to your cart first!");
     return;
   }
 
   if (!/^[1-9]\d{9,14}$/.test(WHATSAPP_NUMBER)) {
-    showToast("Enter a valid WhatsApp number in the code.");
+    showToast("Please add a valid WhatsApp number in the code.");
     return;
   }
 
   const lines = ids.map(id =>
-    `${products[id].name} x ${cart[id]} = ${money(products[id].price * cart[id])}`
+    `${products[id].name} x ${cart[id]} = ${
+      money(products[id].price * cart[id])
+    }`
   );
-  const total = ids.reduce((sum, id) => sum + products[id].price * cart[id], 0);
-  const message = `Hi Street Theory! I'd like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nName:\nPickup or delivery:\nAddress (if delivery):`;
-  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank");
+
+  const total = ids.reduce(
+    (sum, id) => sum + products[id].price * cart[id],
+    0
+  );
+
+  const message =
+    `Namaste Street Theory! 🇮🇳\n\n` +
+    `I'd like to place this order:\n\n` +
+    `${lines.join("\n")}\n\n` +
+    `Total: ${money(total)}\n\n` +
+    `Name:\n` +
+    `Pickup or delivery:\n` +
+    `Address (if delivery):`;
+
+  const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener,noreferrer");
 });
+
+/* MOBILE NAVIGATION */
 
 $("menuToggle").addEventListener("click", () => {
   $("navLinks").classList.toggle("show");
 });
+
 document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => $("navLinks").classList.remove("show"));
+  link.addEventListener("click", () => {
+    $("navLinks").classList.remove("show");
+  });
 });
 
-$("year").textContent = new Date().getFullYear();
+/* ACTIVE NAVIGATION LINK */
 
-// Scroll reveal animations
+const sections = document.querySelectorAll("main section[id]");
+
 if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const id = entry.target.id;
+
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + id
+        );
+      });
+    });
+  }, {
+    rootMargin: "-25% 0px -60% 0px"
+  });
+
+  sections.forEach(section => navObserver.observe(section));
+}
+
+/* SCROLL REVEAL ANIMATIONS */
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  }, {
+    threshold: 0.12
+  });
+
+  document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+  });
 } else {
-  document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  document.querySelectorAll(".reveal").forEach(element => {
+    element.classList.add("visible");
+  });
 }
+
+/* CONTACT FORM */
+
+$("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const name = $("customerName").value.trim();
+  const email = $("customerEmail").value.trim();
+  const type = $("enquiryType").value;
+  const message = $("customerMessage").value.trim();
+
+  if (!name || !email || !type || !message) {
+    showToast("Please complete all fields.");
+    return;
+  }
+
+  /*
+    This is a demo form.
+    Replace the demo email address below with your business email.
+  */
+
+  const BUSINESS_EMAIL = "hello@example.com";
+
+  const subject = encodeURIComponent(
+    "Street Theory enquiry: " + type
+  );
+
+  const body = encodeURIComponent(
+    `Name: ${name}\n` +
+    `Email: ${email}\n` +
+    `Enquiry type: ${type}\n\n` +
+    `Message:\n${message}`
+  );
+
+  window.location.href =
+    `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+});
+
+/* CURRENT YEAR */
+
+$("year").textContent = new Date().getFullYear();
+
+/* INITIAL CART RENDER */
+
+renderCart();
 </script>
+
 </body>
 </html>
+```
